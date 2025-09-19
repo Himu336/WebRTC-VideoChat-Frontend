@@ -32,7 +32,11 @@ export const SocketProvider: React.FC<Props> = ({ children }) => {
 
         // create a new peer instance with a unique id
         const userId = uuidV4();
-        const newPeer = new Peer(userId);
+        const newPeer = new Peer(userId, {
+            host: 'localhost',
+            port: 9000,
+            path: '/myapp'
+        });
 
         setUser(newPeer);
         fetchUserFeed();
